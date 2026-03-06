@@ -1,10 +1,11 @@
 import Login from "./pages/Login.jsx"
+import Router from "./Router.jsx"
 
 function App() {
   
     return (
         <>
-           <Login />
+           <Router />
         </>
     )
   
