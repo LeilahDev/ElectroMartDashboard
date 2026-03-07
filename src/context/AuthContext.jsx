@@ -1,4 +1,4 @@
-import { createContext} from "react"
+import { createContext , useState} from "react"
 
 const Auth = createContext ();
 
@@ -9,9 +9,11 @@ function AuthContext ({children}) {
         password: "Admin"
     }
 
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+
     return (
         <>
-           <Auth.Provider value={authObj}>
+           <Auth.Provider value={{authObj,isAuthenticated, setIsAuthenticated}}>
                  {children}
            </Auth.Provider>
         </>

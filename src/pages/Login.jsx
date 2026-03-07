@@ -14,7 +14,6 @@ function Login () {
     
     const navigate = useNavigate();
 
-    //CHECK OUT THIS PAGE
     const [formData, setFormData] = useState({
             email: "",
             password: ""
