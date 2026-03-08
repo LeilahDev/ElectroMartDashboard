@@ -9,9 +9,10 @@ import { MyUIcontext } from "../context/UIcontext.jsx";
 
 function Login () {
 
-    const {email, password} = useContext(Auth);
+    const {authObj,setIsAuthenticated} = useContext(Auth);
+    const {email , password} = authObj;
     const {errorMsg, setErrorMsg, errors, setErrors} = useContext(MyUIcontext);
-    
+        
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
@@ -30,9 +31,11 @@ function Login () {
 
     function handleSubmit(e) {
             e.preventDefault();
+            setErrors(false)
             
             if(formData.email === email && formData.password === password){
                 navigate ('/dashboard');
+                setIsAuthenticated(true)
                 setErrors(false)
             }else if(formData.email !== email && formData.password !== password){
                 setErrorMsg("Incorrect email and password")
@@ -45,6 +48,11 @@ function Login () {
                  setErrorMsg("Incorrect password")
                  setErrors(true)
             }
+
+            setFormData({
+            email: "",
+            password: ""
+            })
     }
 
     return (

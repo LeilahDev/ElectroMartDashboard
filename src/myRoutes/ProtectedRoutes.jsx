@@ -10,9 +10,7 @@ function ProtectedRoutes ({children}) {
        return <Navigate to ="/" />
     }
 
-    return (
-        {children}
-    )
+    return children;
 
 }
 
